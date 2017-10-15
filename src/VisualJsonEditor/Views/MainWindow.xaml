@@ -10,7 +10,7 @@
                      xmlns:localization="clr-namespace:VisualJsonEditor.Localization"
                      xmlns:controls="clr-namespace:VisualJsonEditor.Controls"
                      xmlns:models="clr-namespace:VisualJsonEditor.Models"
-                     mc:Ignorable="d" Title="{x:Static localization:Strings.HeaderMainWindow}" 
+                     mc:Ignorable="d" Title="Voting Json Editor" 
                      Height="600" Width="700" MinWidth="400" MinHeight="400" Background="LightGray"
                      WindowStartupLocation="CenterScreen">
 

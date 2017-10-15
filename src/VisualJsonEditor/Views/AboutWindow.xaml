@@ -2,8 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:localization="clr-namespace:VisualJsonEditor.Localization"
-        Title="{x:Static localization:Strings.HeaderAboutWindow}"
-        Height="300" Width="500" WindowStartupLocation="CenterScreen" 
+        Title="About Voting Json Editor"
+        Height="312" Width="500" WindowStartupLocation="CenterScreen" 
         ShowInTaskbar="False" ResizeMode="NoResize">
 
     <Grid Margin="12">
@@ -13,10 +13,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel>
-            <TextBlock Margin="0,0,0,4" FontSize="16">
-                <Run Text="{x:Static localization:Strings.LabelAbout1}" /><Hyperlink NavigateUri="http://www.rsuter.com" Click="OnOpenHyperlink"><Run 
-                    Text="Rico Suter"/></Hyperlink>.
-            </TextBlock>
+            <TextBlock Margin="0,0,0,4" FontSize="16" Height="44"><Run Text="This program is for editing and displaying ElDewrito voting and"/><LineBreak/><Run Text=" veto Json files, it is based on "/><Hyperlink NavigateUri="https://github.com/RSuter/VisualJsonEditor"><Run Text="Visual Json Editor"/></Hyperlink> by <Hyperlink NavigateUri="http://www.rsuter.com/"><Run Text="Rico Suter"/></Hyperlink><Run Text="."/></TextBlock>
 
             <TextBlock Text="{x:Static localization:Strings.LabelAboutComponents}" FontWeight="Bold" Margin="0,8,0,4" />
             <TextBlock Margin="0,0,0,4">
