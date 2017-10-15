@@ -10,7 +10,6 @@
             <Directory Id="dirB69C127291ED7A6767DE1C07CB710EBD" Name="pt-BR" />
             <Directory Id="dir3DAE8C8F4F58C40E238DCEDFC2A8A9AF" Name="ro" />
             <Directory Id="dir0E6B439779A3C9A9643FB41EDD1B9B9F" Name="ru" />
-            <Directory Id="dir8AC348C7B7655B223898DAD0CE363C74" Name="Samples" />
             <Directory Id="dirB201C5DE3C644F457EED4016A79612F3" Name="sv" />
             <Directory Id="dirBAE28B3A4D8845968B1452341779A733" Name="zh-Hans" />
         </DirectoryRef>
@@ -701,12 +700,6 @@
             </Component>
             <Component Id="cmpB26BCB367FB14B2FD69BC387BD695DB6" Directory="dir0E6B439779A3C9A9643FB41EDD1B9B9F" Guid="*">
                 <File Id="filF30893CD646F735BCD219BCED4837CB2" KeyPath="yes" Source="$(var.SourcePath)\ru\Xceed.Wpf.AvalonDock.resources.dll" />
-            </Component>
-            <Component Id="cmp2C3C277A25F28215DB65F85475D65E9E" Directory="dir8AC348C7B7655B223898DAD0CE363C74" Guid="*">
-                <File Id="fil3F1A07F0A75BDF6B22558880B4E79B54" KeyPath="yes" Source="$(var.SourcePath)\Samples\Sample.json" />
-            </Component>
-            <Component Id="cmp3967A33D9283459B01E6C4D6291A90CF" Directory="dir8AC348C7B7655B223898DAD0CE363C74" Guid="*">
-                <File Id="fil0B57C0428CCAE4A26D77154BA4CA07A2" KeyPath="yes" Source="$(var.SourcePath)\Samples\Sample.schema.json" />
             </Component>
             <Component Id="cmpB0D450A41DB435125EB4BD9D6EAD0214" Directory="dirB201C5DE3C644F457EED4016A79612F3" Guid="*">
                 <File Id="fil06537AEDF900B16797C813A03A6D6124" KeyPath="yes" Source="$(var.SourcePath)\sv\Xceed.Wpf.AvalonDock.resources.dll" />

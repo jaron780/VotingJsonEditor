@@ -41,7 +41,6 @@ namespace VisualJsonEditor.ViewModels
             OpenDocumentFromPathCommand = new AsyncRelayCommand<string>(OpenDocumentAsync);
             SaveDocumentCommand = new AsyncRelayCommand<JsonDocumentModel>(SaveDocumentAsync, d => d != null && d.UndoRedoManager.CanUndo);
             SaveDocumentAsCommand = new AsyncRelayCommand<JsonDocumentModel>(SaveDocumentAsAsync, d => d != null);
-            SaveDocumentSchemaAsCommand = new AsyncRelayCommand<JsonDocumentModel>(SaveDocumentSchemaAsAsync, d => d != null);
             CloseDocumentCommand = new AsyncRelayCommand<JsonDocumentModel>(CloseDocumentAsync, d => d != null);
             ValidateDocumentCommand = new AsyncRelayCommand<JsonDocumentModel>(ValidateDocumentAsync, d => d != null);
 
@@ -85,9 +84,6 @@ namespace VisualJsonEditor.ViewModels
         /// <summary>Gets the command to save a copy of a document. </summary>
         public AsyncRelayCommand<JsonDocumentModel> SaveDocumentAsCommand { get; private set; }
 
-        /// <summary>Gets the command to save a copy of a document schema. </summary>
-        public AsyncRelayCommand<JsonDocumentModel> SaveDocumentSchemaAsCommand { get; private set; }
-
         /// <summary>Gets the command to open a document with the file open dialog. </summary>
         public AsyncRelayCommand OpenDocumentCommand { get; private set; }
 
@@ -110,7 +106,6 @@ namespace VisualJsonEditor.ViewModels
 
                     SaveDocumentCommand.RaiseCanExecuteChanged();
                     SaveDocumentAsCommand.RaiseCanExecuteChanged();
-                    SaveDocumentSchemaAsCommand.RaiseCanExecuteChanged();
                 }
             }
         }
@@ -303,19 +298,6 @@ namespace VisualJsonEditor.ViewModels
             {
                 await document.SaveAsync(true);
             });
-        }
-
-        private async Task SaveDocumentSchemaAsAsync(JsonDocumentModel document)
-        {
-            var fileName = Path.GetFileNameWithoutExtension(document.FilePath) + ".schema.json";
-            var result = await Messenger.Default.SendAsync(new SaveJsonDocumentMessage(fileName));
-            if (result.Success)
-            {
-                await RunTaskAsync(async token =>
-                {
-                    await Task.Run(() => File.WriteAllText(result.Result, document.Data.Schema.ToJson()), token);
-                });
-            }
         }
     }
 }

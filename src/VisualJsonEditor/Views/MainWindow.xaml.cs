@@ -50,11 +50,6 @@ namespace VisualJsonEditor.Views
             //    }
             //};
 
-#if DEBUG
-            if (Debugger.IsAttached)
-                Dispatcher.InvokeAsync(delegate { Model.OpenDocumentAsync(@"Samples/Sample.json"); });
-#endif
-
         }
 
         /// <summary>Gets the view model. </summary>
@@ -104,11 +99,6 @@ namespace VisualJsonEditor.Views
 
             Model.Configuration = _configuration;
 
-            if (_configuration.IsFirstStart)
-            {
-                _configuration.IsFirstStart = false;
-                await Model.OpenDocumentAsync("Samples/Sample.json", true);
-            }
         }
 
         private void SaveConfiguration()

@@ -77,14 +77,11 @@
                                        Command="{Binding SaveDocumentCommand}" CommandParameter="{Binding SelectedDocument}"
                                        ToolTip="{Binding Strings.ShortcutCtrlS}"
                                        Icon="/Images/ButtonSaveLarge.png" />
-                        
+
                         <Fluent:Button Header="{Binding Strings.ButtonSaveAs}" 
                                        Command="{Binding SaveDocumentAsCommand}" CommandParameter="{Binding SelectedDocument}"
                                        Icon="/Images/ButtonSaveLarge.png" />
-                        <Fluent:Button Header="{Binding Strings.ButtonSaveSchemaAs}" 
-                                       Command="{Binding SaveDocumentSchemaAsCommand}" CommandParameter="{Binding SelectedDocument}"
-                                       Icon="/Images/ButtonSaveLarge.png" />
-                        
+
                         <Fluent:Button Header="{Binding Strings.ButtonExit}" 
                                        Click="OnExitApplication" Icon="/Images/ButtonExitSmall.png" KeyTip="X" />
                     </Fluent:BackstageTabControl>
