@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#", 
+  "definitions": {}, 
+  "id": "http://example.com/example.json", 
+  "properties": {
+    "playlist": {
+      "id": "/properties/playlist", 
+      "items": {
+        "id": "/properties/playlist/items", 
+        "properties": {
+          "gametype": {
+            "id": "/properties/playlist/items/properties/gametype", 
+            "properties": {
+              "commands": {
+                "id": "/properties/playlist/items/properties/gametype/properties/commands", 
+                "items": {
+                  "default": "", 
+                  "description": "The commands that you want run on game start.", 
+                  "examples": [
+                    ""
+                  ], 
+                  "id": "/properties/playlist/items/properties/gametype/properties/commands/items", 
+                  "title": "The 0 schema.", 
+                  "type": "string"
+                }, 
+                "type": "array"
+              }, 
+              "displayName": {
+                "default": "", 
+                "description": "The name you want the gametype to displayed as in the voting UI.", 
+                "examples": [
+                  ""
+                ], 
+                "id": "/properties/playlist/items/properties/gametype/properties/displayName", 
+                "title": "The displayname schema.", 
+                "type": "string"
+              }, 
+              "typeName": {
+                "default": "", 
+                "description": "The name of the actual gametype.", 
+                "examples": [
+                  ""
+                ], 
+                "id": "/properties/playlist/items/properties/gametype/properties/typeName", 
+                "title": "The typename schema.", 
+                "type": "string"
+              }
+            }, 
+            "type": "object"
+          }, 
+          "map": {
+            "id": "/properties/playlist/items/properties/map", 
+            "properties": {
+              "displayName": {
+                "default": "", 
+                "description": "The name you want the map to displayed as in the voting UI.", 
+                "examples": [
+                  ""
+                ], 
+                "id": "/properties/playlist/items/properties/map/properties/displayName", 
+                "title": "The displayname schema.", 
+                "type": "string"
+              }, 
+              "mapName": {
+                "default": "", 
+                "description": "The name of the actual map.", 
+                "examples": [
+                  ""
+                ], 
+                "id": "/properties/playlist/items/properties/map/properties/mapName", 
+                "title": "The mapname schema.", 
+                "type": "string"
+              }
+            }, 
+            "type": "object"
+          }
+        }, 
+        "type": "object"
+      }, 
+      "type": "array"
+    }
+  }, 
+  "type": "object"
+}

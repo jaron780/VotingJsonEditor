@@ -183,6 +183,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Schema\veto.schema.json" />
     <None Include="Schema\voting.schema.json" />
     <SplashScreen Include="SplashScreen.png" />
     <EmbeddedResource Include="Localization\Strings.resx">
