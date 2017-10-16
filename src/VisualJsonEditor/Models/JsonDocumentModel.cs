@@ -91,10 +91,22 @@ namespace VisualJsonEditor.Models
         /// <returns>The path to the schema file. </returns>
         public static string GetDefaultSchemaPath(string filePath)
         {
-            var directoryName = Path.GetDirectoryName(filePath);
-            if (string.IsNullOrEmpty(directoryName))
-                return Path.GetFileNameWithoutExtension(filePath) + ".schema" + Path.GetExtension(filePath);
-            return Path.Combine(directoryName, Path.GetFileNameWithoutExtension(filePath) + ".schema" + Path.GetExtension(filePath));
+            if (Path.GetFileNameWithoutExtension(filePath) == "voting")
+            {
+                return "schema/voting.schema.json";
+            }
+            else if (Path.GetFileNameWithoutExtension(filePath) == "veto")
+            {
+                return "schema/veto.schema.json";
+            }
+            else
+            {
+                var directoryName = Path.GetDirectoryName(filePath);
+                if (string.IsNullOrEmpty(directoryName))
+                    return Path.GetFileNameWithoutExtension(filePath) + ".schema" + Path.GetExtension(filePath);
+                return Path.Combine(directoryName, Path.GetFileNameWithoutExtension(filePath) + ".schema" + Path.GetExtension(filePath));
+            }
+
         }
 
         /// <summary>Loads a <see cref="JsonDocumentModel"/> from a file path. The schema path is automatically determined. </summary>

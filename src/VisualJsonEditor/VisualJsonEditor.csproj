@@ -184,8 +184,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Resource Include="Icon.ico" />
-    <None Include="Schema\veto.schema.json" />
-    <None Include="Schema\voting.schema.json" />
+    <None Include="Schema\veto.schema.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Schema\voting.schema.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <SplashScreen Include="SplashScreen.png" />
     <EmbeddedResource Include="Localization\Strings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
