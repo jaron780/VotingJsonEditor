@@ -91,11 +91,11 @@ namespace VisualJsonEditor.Models
         /// <returns>The path to the schema file. </returns>
         public static string GetDefaultSchemaPath(string filePath)
         {
-            if (Path.GetFileNameWithoutExtension(filePath) == "voting")
+            if (Path.GetFileNameWithoutExtension(filePath).ToUpperInvariant().Contains("VOTING"))
             {
                 return "schema/voting.schema.json";
             }
-            else if (Path.GetFileNameWithoutExtension(filePath) == "veto")
+            else if (Path.GetFileNameWithoutExtension(filePath).ToUpperInvariant().Contains("VETO"))
             {
                 return "schema/veto.schema.json";
             }
