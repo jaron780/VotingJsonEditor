@@ -13,6 +13,8 @@ using MyToolkit.Data;
 using MyToolkit.Model;
 using MyToolkit.Mvvm;
 using NJsonSchema;
+using Newtonsoft.Json;
+using System.Windows;
 
 namespace VisualJsonEditor.Models
 {
@@ -91,21 +93,24 @@ namespace VisualJsonEditor.Models
         /// <returns>The path to the schema file. </returns>
         public static string GetDefaultSchemaPath(string filePath)
         {
-            if (Path.GetFileNameWithoutExtension(filePath).ToUpperInvariant().Contains("VOTING"))
+            try
             {
-                return "schema/voting.schema.json";
+                dynamic jsonContents = JsonConvert.DeserializeObject(File.ReadAllText(filePath));
+                if (jsonContents["Maps"] != null && jsonContents["Types"] != null)
+                {
+                    return "schema/voting.schema.json";
+                }
+                else if (jsonContents["playlist"] != null)
+                {
+                    return "schema/veto.schema.json";
+                }
             }
-            else if (Path.GetFileNameWithoutExtension(filePath).ToUpperInvariant().Contains("VETO"))
+            catch
             {
-                return "schema/veto.schema.json";
-            }
-            else
-            {
-                var directoryName = Path.GetDirectoryName(filePath);
-                if (string.IsNullOrEmpty(directoryName))
-                    return Path.GetFileNameWithoutExtension(filePath) + ".schema" + Path.GetExtension(filePath);
-                return Path.Combine(directoryName, Path.GetFileNameWithoutExtension(filePath) + ".schema" + Path.GetExtension(filePath));
-            }
+                MessageBox.Show("Invalid voting/veto json");
+                return null;
+            }  
+            return null;
 
         }
 

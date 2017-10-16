@@ -176,14 +176,6 @@ namespace VisualJsonEditor.ViewModels
                 await RunTaskAsync(async token =>
                 {
                     var schemaPath = JsonDocumentModel.GetDefaultSchemaPath(fileName);
-                    if (!File.Exists(schemaPath))
-                    {
-                        var result = await Messenger.Default.SendAsync(new OpenJsonDocumentMessage(Strings.OpenJsonSchemaDocumentDialog));
-                        if (!result.Success)
-                            return;
-
-                        schemaPath = result.Result;
-                    }
 
                     var document = await JsonDocumentModel.LoadAsync(fileName, schemaPath, ServiceLocator.Default.Resolve<IDispatcher>());
                     document.IsReadOnly = isReadOnly;
