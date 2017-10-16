@@ -158,11 +158,6 @@ namespace VisualJsonEditor.Models
                 var jsonData = Data.ToJson();
                 File.WriteAllText(FilePath, jsonData, Encoding.UTF8);
 
-                if (saveSchema)
-                {
-                    var schemaPath = GetDefaultSchemaPath(FilePath);
-                    File.WriteAllText(schemaPath, Data.Schema.ToJson());
-                }
             });
 
             UndoRedoManager.Reset();
