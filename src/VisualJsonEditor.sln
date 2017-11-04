@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualJsonEditor", "VisualJsonEditor\VisualJsonEditor.csproj", "{CA84EB04-87DC-4287-A7FB-56A0C61C06BA}"
-EndProject
-Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "VisualJsonEditor.Installer", "VisualJsonEditor.Installer\VisualJsonEditor.Installer.wixproj", "{16A1D263-97CA-421B-B03A-96BDEFE05F89}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E4B6C387-F4A5-4DD1-B36F-97AB02D8A266}"
 	ProjectSection(SolutionItems) = preProject
@@ -30,15 +28,11 @@ Global
 		{CA84EB04-87DC-4287-A7FB-56A0C61C06BA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CA84EB04-87DC-4287-A7FB-56A0C61C06BA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{CA84EB04-87DC-4287-A7FB-56A0C61C06BA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{16A1D263-97CA-421B-B03A-96BDEFE05F89}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{16A1D263-97CA-421B-B03A-96BDEFE05F89}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{16A1D263-97CA-421B-B03A-96BDEFE05F89}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{16A1D263-97CA-421B-B03A-96BDEFE05F89}.Release|Any CPU.ActiveCfg = Release|x86
-		{16A1D263-97CA-421B-B03A-96BDEFE05F89}.Release|Any CPU.Build.0 = Release|x86
-		{16A1D263-97CA-421B-B03A-96BDEFE05F89}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{16A1D263-97CA-421B-B03A-96BDEFE05F89}.Release|Mixed Platforms.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {52DF74BE-2F51-41C4-96EB-9B20D231F958}
 	EndGlobalSection
 EndGlobal
