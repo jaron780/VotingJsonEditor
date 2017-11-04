@@ -193,11 +193,44 @@ namespace VisualJsonEditor.ViewModels
             ExceptionBox.Show(Strings.MessageErrorTitle, exception, Application.Current.MainWindow);
         }
 
+        public static string ShowDialog()
+        {
+            System.Windows.Forms.Form prompt = new System.Windows.Forms.Form();
+            prompt.Width = 300;
+            prompt.Height = 150;
+            prompt.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            prompt.MinimizeBox = false;
+            prompt.MaximizeBox = false;
+            prompt.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            prompt.Text = "Choose a Json Scheme";
+            System.Windows.Forms.Label textLabel = new System.Windows.Forms.Label() { Left = 50, Width = 200, Top = 20, Text = "Please select a Json Scheme" };
+            System.Windows.Forms.RadioButton voting = new System.Windows.Forms.RadioButton() { Left = 50, Top = 50, Width = 100, Text = "Voting Json"};
+            voting.Checked = true;
+            System.Windows.Forms.RadioButton veto = new System.Windows.Forms.RadioButton() { Left = 150, Top = 50, Width = 100, Text = "Veto Json"};
+
+            //System.Windows.Forms.NumericUpDown inputBox = new System.Windows.Forms.NumericUpDown() { Left = 50, Top = 50, Width = 400 };
+            System.Windows.Forms.Button confirmation = new System.Windows.Forms.Button() { Text = "Ok", Left = 100, Width = 100, Top = 80 };
+            string path = "";
+            confirmation.Click += (sender, e) => {
+                if(voting.Checked) path = "./Schema/voting.schema.json";
+                if (veto.Checked) path = "./Schema/veto.schema.json";
+                prompt.Close();
+            };
+            prompt.Controls.Add(confirmation);
+            prompt.Controls.Add(textLabel);
+            prompt.Controls.Add(voting);
+            prompt.Controls.Add(veto);
+            prompt.ShowDialog();
+            return path;
+        }
+
         private async Task CreateDocumentAsync()
         {
-            var result = await Messenger.Default.SendAsync(new OpenJsonDocumentMessage(Strings.OpenJsonSchemaDocumentDialog));
-            if (result.Success)
-                await CreateDocumentAsync(result.Result);
+            //Console.WriteLine(ShowDialog());
+            //var result = await Messenger.Default.SendAsync(new OpenJsonDocumentMessage(Strings.OpenJsonSchemaDocumentDialog));
+            //var result = "./Schema/veto.schema.json";
+            //if (result.Success)
+                await CreateDocumentAsync(ShowDialog());
         }
 
         private void AddDocument(JsonDocumentModel document)
